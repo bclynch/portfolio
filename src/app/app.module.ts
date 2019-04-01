@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { DirectivesModule } from './directives/directives.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { UtilService } from './services/util.service';
 
@@ -22,8 +22,6 @@ import {
   MatMenuModule,
   MatIconModule,
   MatDialogModule,
-  MatSelectModule,
-  MatInputModule,
 } from '@angular/material';
 
 @NgModule({
@@ -46,10 +44,7 @@ import {
     MatIconModule,
     DirectivesModule,
     MatDialogModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatSelectModule,
-    MatInputModule,
+    FontAwesomeModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [

@@ -3,7 +3,8 @@ import * as SimplexNoise from 'simplex-noise';
 import { UtilService } from './services/util.service';
 import { MatDialog } from '@angular/material';
 import { ProjectDialogueComponent } from './components/project-dialogue/project-dialogue.component';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { faAws, faNodeJs, faAngular, faInstagram, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faCubes, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
 const { PI, cos, sin, abs, sqrt, pow, round, random, atan2 } = Math;
 const HALF_PI = 0.5 * PI;
@@ -53,60 +54,78 @@ export class AppComponent implements OnInit {
   simplex;
   baseHue;
 
+  badges = [
+    {
+      icon: faAngular,
+      title: 'Angular',
+      content: 'My JS framework of choice for the moment, Angular helps to build out slick and fast PWAs and websites.'
+    },
+    {
+      icon: faNodeJs,
+      title: 'Node',
+      content: 'On the backend Node powers my applications servers with image / data processing, routing, web scraping, email blasts and more.'
+    },
+    {
+      icon: faAws,
+      title: 'AWS',
+      content: 'AWS in the cloud supports many of my applications with universal S3 usage, RDS hosting the databases, and SES emailing service work.'
+    },
+    {
+      icon: faCubes,
+      title: 'Postgres',
+      content: 'Postgres SQL in combination with Graphql and Apollo are a powerful combination used to create APIs and fluid data distribution.'
+    },
+  ];
+
   projects = [
     {
       title: 'EDM Flare',
       subtitle: 'Angular Material + Node',
-      thumbnail: 'assets/images/thumb-1.jpg'
+      thumbnail: 'assets/images/projects/edmflare.png',
+      url: 'https://edmflare.com/',
+      content: 'EDM Flare provides users a single place to find information on local electronic shows coming up with event, venue, and artist information. An Angular project written with Material components / styling with a Node backend. Supported by AWS services and Google Places API.',
+      description: 'Music Events Aggregator'
     },
     {
       title: 'Pack On My Back',
       subtitle: 'Ionic Angular + Node',
-      thumbnail: 'assets/images/thumb-1.jpg'
+      thumbnail: 'assets/images/projects/pomb.png',
+      url: 'https://packonmyback.com/',
+      content: 'Pack On My Back provides users a single place to keep track of all their travels. Upload pictures, write blogs, and create an interactive map of everywhere you have been. An Angular project written with Ionic components with a Node backend. Supported by AWS services and Google Places API.',
+      description: 'Travel Archiving Platform'
     },
     {
       title: 'imSMART Web Client',
       subtitle: 'Ionic Angular',
-      thumbnail: 'assets/images/thumb-1.jpg'
+      thumbnail: 'assets/images/projects/webclient.png',
+      content: 'The imSmart web client provides users a way to access all their files and applications off their ipad, on the web. Written with Angular and Ionic it taps into the comprehensive existing API with user and organization content / settings ready to be consumed by the user.',
+      description: 'Enterprise Web Client'
     }
   ];
 
-  contactForm: FormGroup = this.fb.group({
-    topic: ['', Validators.required],
-    email: [
-      '',
-      Validators.compose([
-        Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-      ])
-    ],
-    name: ['', Validators.required],
-    message: ['', Validators.required],
-  });
-
-  formValidationMessages = {
-    'topic': [
-      { type: 'required', message: 'A topic is required' },
-    ],
-    'email': [
-      { type: 'required', message: 'Email is required' },
-      { type: 'pattern', message: 'Enter a valid email' }
-    ],
-    'name': [
-      { type: 'required', message: 'Name is required' },
-    ],
-    'message': [
-      { type: 'required', message: 'A message is required' },
-    ],
-  };
-
-  topics = ['I need help figuring out how something works', 'I found a bug', 'Other'];
+  socials = [
+    {
+      icon: faGithub,
+      url: 'https://github.com/bclynch'
+    },
+    {
+      icon: faLinkedin,
+      url: 'https://www.linkedin.com/in/brendan-lynch-3463743b'
+    },
+    {
+      icon: faInstagram,
+      url: 'https://www.instagram.com/bclynch7/'
+    },
+    {
+      icon: faPaperPlane,
+      type: 'email'
+    }
+  ];
 
   constructor(
     public ngZone: NgZone,
     private utilService: UtilService,
-    public dialog: MatDialog,
-    private fb: FormBuilder,
+    public dialog: MatDialog
   ) {
 
   }
@@ -124,6 +143,10 @@ export class AppComponent implements OnInit {
       panelClass: 'projectdialog-panel',
       data: { project }
     });
+  }
+
+  sendEmail() {
+    window.open('mailto:bclynch7@gmail.com?subject=Portfolio Query');
   }
 
   setup() {

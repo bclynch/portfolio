@@ -5,12 +5,14 @@
 >
   <div class="navBarWrapper">
     <div class="barWrapper">
-      <div *ngFor="let link of links;" class="desktopNav">
-        <div><a (click)="scrollTo(link)">{{link}}</a></div>
+      <div class="desktopNav">
+        <div *ngFor="let link of links;">
+          <div><a (click)="scrollTo(link)">{{link}}</a></div>
+        </div>
       </div>
       <div class="mobileNav">
-        <button class="menuBtn" mat-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
-        <mat-menu #menu="matMenu" [overlapTrigger]="false" xPosition="before">
+        <button class="menuBtn" mat-button [matMenuTriggerFor]="mobilemenu" #menuTrigger="matMenuTrigger"><mat-icon>menu</mat-icon></button>
+        <mat-menu #mobilemenu="matMenu" [overlapTrigger]="false" xPosition="before">
           <button mat-button *ngFor="let link of links;" (click)="scrollTo(link)"><a>{{link}}</a></button>
         </mat-menu>
       </div>

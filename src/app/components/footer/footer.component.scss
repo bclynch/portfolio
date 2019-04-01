@@ -29,53 +29,8 @@
   a:hover {
     text-decoration: underline;
   }
-  .contentContainer {
-    display: flex;
-    flex-direction: column;
-
-    .column {
-      flex: 1;
-      
-      &.use {
-        display: none;
-      }
-      &.find,
-      &.connect {
-
-        .linksContainer {
-          display: flex;
-          flex-wrap: wrap;
-
-          > div:nth-child(odd) {
-            margin-right: 15px;
-          }
-        }
-      }
-      &.connect {
-        margin-top: 20px;
-      }
-      h4 {
-        margin: .3em 0 .6em;
-      }
-      .linksContainer {
-        >div {
-          margin-bottom: 6px;
-        }
-      }
-    }
-  }
   .bottomContainer {
     text-align: center;
-    margin-top: .5em;
-
-    .linksWrapper {
-      display: flex;
-      justify-content: space-around;
-
-      > a {
-        text-align: center;
-      }
-    }
   }
   @media (min-width: 768px) {
     .contentContainer {
@@ -104,7 +59,6 @@
     }
     .bottomContainer {
       display: flex;
-      text-align: left;
   
       .linksWrapper {
         justify-content: flex-start;

@@ -2,5 +2,11 @@
   <div class="mobilePromptClose" (click)="dismiss()">
     <button mat-button><mat-icon>close</mat-icon></button>
   </div>
-  <div>Hey</div>
+  <img class="banner" [src]="data.project.thumbnail" />
+  <div class="contentWrapper">
+    <h2>{{data.project.title}}</h2>
+    <h5>{{data.project.description}}</h5>
+    <p>{{data.project.content}}</p>
+    <a [href]="data.project.url" target="_blank" rel="nofollow" *ngIf="data.project.url"><button mat-flat-button color="accent"><mat-icon>open_in_new </mat-icon> View Site</button></a>
+  </div>
 </div>

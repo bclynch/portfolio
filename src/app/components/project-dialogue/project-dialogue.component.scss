@@ -6,35 +6,32 @@
 
   .mobilePromptClose {
     position: absolute;
-    top: .33em;
-    right: .33em;
+    bottom: 1em;
+    right: 1em;
 
     button {
       padding: 0 10px;
       min-width: auto;
     }
   }
-  .header {
-    text-align: center;
-    width: 100%;
+  img {
+    height: 40vh;
+    border-bottom: solid 2px black;
   }
-  .shareContainer {
-    margin-bottom: 3em;
-  }
-  .urlContainer {
-    display: flex;
-    padding: 8px;
-    border: solid 1px var(--color-primary);
-    width: 90%;
-    margin-bottom: 3em;
+  .contentWrapper {
+    padding: 1em;
 
-    .wrapper {
-      flex: 1;
-      overflow: hidden;
+    h2 {
+      margin: 0;
+    }
+    h5 {
+      color: #ddd;
+      border-bottom: solid 1px #ddd;
+      margin: 0 0 .5em;
+      padding-bottom: .5em;
     }
     button {
-      padding: 0 5px;
-      min-width: auto;
+      color: white;
     }
   }
 }

@@ -1,14 +1,29 @@
 .portfolioContainer {
   width: 100vw;
   
+  .sectionTitleWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1em;
+
+    h1 {
+      text-align: center;
+    }
+    .underline {
+      border-top: solid 3px black;
+      width: 3em;
+    }
+  }
   .headerContainer {
-    height: calc(100vh - var(--height-navbar));
+    height: calc(100vh - var(--height-navbar) - 8em);
     color: white;
 
     .frame {
       text-align: center;
       position: relative;
       z-index: 1000;
+      margin-top: 8em;
     }
     .content {
       display: flex;
@@ -23,9 +38,84 @@
     }
   }
   .aboutContainer {
+    padding: 0 5%;
 
+    .badgesWrapper {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+
+      .badge {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1em;
+        width: 50%;
+        box-sizing: border-box;
+        
+        .octagon {
+          width: 6em;
+          height: 6em;
+          background: var(--color-accent);
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          fa-icon {
+            color: white;
+            font-size: 2.25em!important;
+          }
+        }
+        .octagon:before {
+          content: "";
+          width: 6em;
+          height: 0;
+          position: absolute;
+          top: 0;
+          left: 0;
+          border-bottom: calc(6em * .29) solid var(--color-accent);
+          border-left: calc(6em * .29) solid white;
+          border-right: calc(6em * .29) solid white;
+          box-sizing: border-box;
+        }
+        .octagon:after {
+          content: "";
+          width: 6em;
+          height: 0;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          border-top: calc(6em * .29) solid var(--color-accent);
+          border-left: calc(6em * .29) solid white;
+          border-right: calc(6em * .29) solid white;
+          box-sizing: border-box;
+        }  
+      }
+    }
+    .aboutWrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .octoProfile {
+        width: 15em;
+        height: 15em;
+        background-image: url('../assets/images/profile.jpg');
+        background-position: left;
+        background-size: cover; 
+        -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+        clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+      }
+      .content {
+        flex: 1;
+      }
+    }
   }
   .projectsContainer {
+    padding: 0 5%;
+    margin: 8em 0;
 
     .projectsWrapper {
       display: flex;
@@ -37,6 +127,7 @@
         width: 100%;
         position: relative;
         height: 15em;
+        margin-bottom: 2em;
 
         .overlay {
           background: white;
@@ -55,6 +146,9 @@
           .subtitle {
             color: var(--color-accent);
           }
+          button {
+            cursor: pointer;
+          }
         }
       }
       .project:hover, .project:active{
@@ -65,42 +159,55 @@
     }
   }
   .contactContainer {
-    height: 100vh;
-    background: #252934;
+    height: 70vh;
+    background: var(--color-primary);
+    color: white;
 
-    form {
-      padding: 10px;
-      width: calc(100% - 20px);
-      max-width: 800px;
+    .sectionTitleWrapper {
       color: white;
-  
-      .mat-form-field {
-        display: block;
-      }
-      .btnWrapper {
-        display: flex;
-        justify-content: center;
-  
-        button[type='submit'] {
-          color: white;
-          width: 50%;
-          margin: 25px 0;      
-        }
-      }
-      .toggle {
-        margin-top: 15px;
+      margin-bottom: 5em;
+    }
+    .text {
+      width: 30em;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+    .socialWrapper {
+      display: flex;
+      justify-content: space-around;
+      width: 20em;
+      margin: 2em auto 0;
+
+      fa-icon {
+        color: white;
+        font-size: 3em!important;
       }
     }
   }
 
   @media (min-width: 768px) {
 
+    .aboutContainer {
+      .badgesWrapper {
+        .badge {
+          width: 25%;
+        }
+      }
+      .aboutWrapper {
+        flex-direction: row;
+
+        .content {
+          margin-left: 1em;
+        }
+      }
+    }
     .projectsContainer {
 
       .projectsWrapper {
   
         .project {
           width: 50%;
+          margin-bottom: 0;
         }
       }
     }
