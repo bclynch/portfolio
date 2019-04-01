@@ -1,1 +1,195 @@
 /* You can add global styles to this file, and also import other style files */
+@import './app/theme.scss';
+@import '~@ngx-share/button/themes/material/material-dark-theme';
+
+// global css4 vars
+:root {
+  --color-primary: #546e7a;
+  --color-accent: #ffc107;
+  --color-border: #ddd;
+  --height-navbar: 9vh;
+  --height-footer: 350px;
+  --color-background: radial-gradient(circle farthest-side, #fff602, #ffb600);
+}
+
+// fluid fonts / scaling
+// https://zellwk.com/blog/viewport-based-typography/
+// https://codepen.io/MadeByMike/pen/VvwqvW
+
+html { 
+  font-size: calc(112.5% + 0.25vw) !important;
+
+  body {
+    margin: 0;
+  }
+  mat-icon {
+    font-size: 2em !important;
+    height: 1em !important;
+    width: 1em !important;
+  }
+  fa-icon {
+    font-size: 1.5em !important;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  
+  h2 {font-size: 1.8em; margin: 1em 0;}
+  
+  h3 {font-size: 1.6em; margin: 1em 0;}
+  
+  h4 {
+    font-size: 1.4em;
+    margin: 1em 0;
+  }
+  
+  h5 {font-size: 1.2em; margin: 1em 0;}
+
+  h6 {font-size: 1.05em; margin: 1em 0;}
+}
+@media (min-width: 1200px) {
+  html { 
+    // font-size: calc(112.5% + 0.3vw) !important;
+
+    mat-icon {
+      font-size: 2.25em !important;
+
+      &.smallIcon {
+        font-size: 2em !important;
+      }
+    }
+    fa-icon {
+      font-size: 1.8em !important;
+    }
+  }
+}
+@media (min-width: 1600px) {
+  html {
+    font-size: calc(112.5% + 0.5vw) !important;
+
+    mat-icon {
+      font-size: 3em !important;
+
+      &.smallIcon {
+        font-size: 2.75em !important;
+      }
+    }
+    fa-icon {
+      font-size: 2.25em !important;
+    }
+  }
+}
+@media (min-width: 2000px) {
+  html { 
+    font-size: calc(112.5% + 0.75vw) !important;
+
+    mat-icon {
+      font-size: 4em !important;
+
+      &.smallIcon {
+        font-size: 3.5em !important;
+      }
+    }
+    fa-icon {
+      font-size: 2.5em !important;
+    }
+  }
+}
+@media (min-width: 3000px) {
+  html { 
+    font-size: calc(112.5% + 1vw) !important;
+
+    mat-icon {
+      font-size: 6.5em !important;
+
+      &.smallIcon {
+        font-size: 5em !important;
+      }
+    }
+    fa-icon {
+      font-size: 3.5em !important;
+    }
+  }
+}
+
+.boldFont {
+  font-weight: 500;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+app-pagewrapper {
+  position: fixed;
+  top:        0;
+  bottom:     0;
+  left:       0;
+  right:      0;
+  overflow:   scroll;
+  -ms-overflow-style: none;
+  font-family: 'Helvetica Neue', 'RobotoLight', sans-serif;
+}
+
+.wrapper {
+  width: 100%;
+  background: white;
+}
+@media (min-width: 1200px) {
+  .wrapper {
+    width: 100% !important;
+  }
+}
+
+app-footer {
+  width: 100vw;
+}
+
+app-events {
+  app-footer {
+    position: absolute;
+    top: 100vh;
+    z-index: 999;
+    width: 100vw;
+  }
+}
+
+app-navbar {
+  width: 100vw;
+}
+
+// nav bar mat menu scaling
+.mat-menu-panel {
+  max-width: 100% !important;
+
+
+  button {
+    display: flex;
+  }
+  .mat-menu-item {
+    font-size: 1em;
+    height: auto;
+    line-height: normal;
+    padding: .15em 1em;
+  }
+  @media (min-width: 1200px) {
+    .mat-menu-item {
+      font-size: 1.25em;
+      height: auto;
+      line-height: normal;
+      padding: .15em 1em;
+    }
+  }
+}
+
+.projectdialog-panel {
+  width: 600px !important;
+  max-width: 90% !important;
+
+  mat-dialog-container {
+    padding: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .projectdialog-panel {
+    width: 60vw !important;
+  }
+}

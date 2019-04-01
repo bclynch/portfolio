@@ -1,0 +1,78 @@
+.navBarContainer {
+  // background: white;
+  color: black;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: var(--height-navbar);
+  transition: all .3s ease-in-out; 
+  overflow: hidden;
+
+  &.hidden {
+    transform: translateY(calc(var(--height-navbar) * -1));
+  }
+  .navBarWrapper {
+    width: 100%;
+    height: calc(var(--height-navbar) - 1px); // -1 px for the border to show
+    position: absolute;
+    top: 0;
+    border-bottom: solid 1px var(--color-border);
+    background: white;
+
+    .barWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--height-navbar);
+
+      .desktopNav {
+        display: none;
+
+        a {
+          cursor: pointer;
+        }
+      }
+      .mobileNav {
+        mat-menu {
+          button {
+            display: block;
+          }
+        }
+      }
+      mat-icon {
+        color: black;
+        cursor: pointer;
+      }
+      .logoWrapper {
+        height: var(--height-navbar);
+        .logo {
+          height: var(--height-navbar);
+          display: flex;
+          align-items: center;
+
+          img {
+            height: 60%;
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: 768px) {
+  .navBarContainer {
+    display: flex;
+    justify-content: center;
+
+    .barWrapper {
+      padding: 0 1.5em;
+
+      .desktopNav {
+        display: block !important;
+      }
+      .mobileNav {
+        display: none !important;
+      }
+    }
+  }
+}

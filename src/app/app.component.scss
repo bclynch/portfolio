@@ -1,0 +1,108 @@
+.portfolioContainer {
+  width: 100vw;
+  
+  .headerContainer {
+    height: calc(100vh - var(--height-navbar));
+    color: white;
+
+    .frame {
+      text-align: center;
+      position: relative;
+      z-index: 1000;
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+      height: calc(100vh - var(--height-navbar));
+      position: absolute;
+      justify-content: flex-start;
+      align-items: center;
+      top: 0;
+      left: 0;
+    }
+  }
+  .aboutContainer {
+
+  }
+  .projectsContainer {
+
+    .projectsWrapper {
+      display: flex;
+      flex-wrap: wrap;
+
+      .project {
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        position: relative;
+        height: 15em;
+
+        .overlay {
+          background: white;
+          opacity: 0;
+          transition: .5s;
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          text-align: center;
+
+          .title {
+
+          }
+          .subtitle {
+            color: var(--color-accent);
+          }
+        }
+      }
+      .project:hover, .project:active{
+        .overlay {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .contactContainer {
+    height: 100vh;
+    background: #252934;
+
+    form {
+      padding: 10px;
+      width: calc(100% - 20px);
+      max-width: 800px;
+      color: white;
+  
+      .mat-form-field {
+        display: block;
+      }
+      .btnWrapper {
+        display: flex;
+        justify-content: center;
+  
+        button[type='submit'] {
+          color: white;
+          width: 50%;
+          margin: 25px 0;      
+        }
+      }
+      .toggle {
+        margin-top: 15px;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+
+    .projectsContainer {
+
+      .projectsWrapper {
+  
+        .project {
+          width: 50%;
+        }
+      }
+    }
+  }
+}

@@ -1,21 +1,91 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<app-pagewrapper>
+  <div class="portfolioContainer">
+    <div class="headerContainer" id="Home">
+      <div class="frame">
+        <div class="frame__title-wrap">
+          <h1 class="frame__title">Brendan Lynch</h1>
+          <h2>Web Applications Developer</h2>
+          <button mat-stroked-button (click)="scrollTo('About')">View My Portfolio</button>
+        </div>
+      </div>
+      <div class="content content--canvas"></div>
+    </div>
+    <div class="aboutContainer" id="About">
+      <h1>About</h1>
+    </div>
+    <div class="projectsContainer" id="Projects">
+      <h1>Projects</h1>
+      <div class="projectsWrapper">
+        <div 
+          *ngFor="let project of projects;" 
+          class="project" 
+          [ngStyle]="{ 'background-image': 'url(' + project.thumbnail + ')'}"
+        >
+          <div class="overlay">
+            <h3 class="title">{{project.title}}</h3>
+            <h4 class="subtitle">{{project.subtitle}}</h4>
+            <button mat-stroked-button (click)="openProject(project)" color="accent">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contactContainer" id="Contact">
+      <form 
+        [formGroup]="contactForm" 
+        #formDirective="ngForm" 
+        (ngSubmit)="submitContact(formDirective)"
+      >
+        <h1>Contact Me</h1>
+        <mat-form-field>
+          <mat-select placeholder="Topic" formControlName="topic" required>
+            <mat-option *ngFor="let topic of topics" [value]="topic">
+              {{topic}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngFor="let validation of formValidationMessages.topic">
+            <mat-error class="error-message" *ngIf="contactForm.get('topic').hasError(validation.type) && (contactForm.get('topic').dirty || contactForm.get('topic').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Name" 
+            formControlName="name"
+          />
+          <mat-error *ngFor="let validation of formValidationMessages.name">
+            <mat-error class="error-message" *ngIf="contactForm.get('name').hasError(validation.type) && (contactForm.get('name').dirty || contactForm.get('name').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Email" 
+            formControlName="email"
+          />
+          <mat-error *ngFor="let validation of formValidationMessages.email">
+            <mat-error class="error-message" *ngIf="contactForm.get('email').hasError(validation.type) && (contactForm.get('email').dirty || contactForm.get('email').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field hintLabel="Max 500 characters">
+          <textarea 
+            matInput 
+            placeholder="Message" 
+            #input 
+            maxlength="500" 
+            formControlName="message" 
+            rows="3"
+          ></textarea>
+          <mat-hint align="end">{{input.value?.length || 0}}/500</mat-hint>
+          <mat-error *ngFor="let validation of formValidationMessages.message">
+            <mat-error class="error-message" *ngIf="contactForm.get('message').hasError(validation.type) && (contactForm.get('message').dirty || contactForm.get('message').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <div class="btnWrapper">
+          <button mat-flat-button color="primary" type="submit" [disabled]="!formDirective.valid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</app-pagewrapper>
 
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
