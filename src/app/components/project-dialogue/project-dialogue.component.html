@@ -4,9 +4,13 @@
   </div>
   <img class="banner" [src]="data.project.thumbnail" />
   <div class="contentWrapper">
-    <h2>{{data.project.title}}</h2>
+    <div class="titleRow">
+      <h2>{{data.project.title}}</h2>
+      <a [href]="data.project.github" target="_blank" rel="nofollow" *ngIf="data.project.github"><button mat-flat-button color="accent"><fa-icon [icon]="faGithub"></fa-icon> UI</button></a>
+      <a [href]="data.project.githubServer" target="_blank" rel="nofollow" *ngIf="data.project.githubServer"><button mat-flat-button color="accent"><fa-icon [icon]="faGithub"></fa-icon> Server</button></a>
+    </div>
     <h5>{{data.project.description}}</h5>
     <p>{{data.project.content}}</p>
-    <a [href]="data.project.url" target="_blank" rel="nofollow" *ngIf="data.project.url"><button mat-flat-button color="accent"><mat-icon>open_in_new </mat-icon> View Site</button></a>
+    <a [href]="data.project.url" target="_blank" rel="nofollow" *ngIf="data.project.url"><button mat-flat-button color="accent"><mat-icon>open_in_new</mat-icon> View Site</button></a>
   </div>
 </div>

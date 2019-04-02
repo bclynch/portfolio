@@ -24,6 +24,11 @@
       position: relative;
       z-index: 1000;
       margin-top: 8em;
+
+      button {
+        color: white;
+        margin: 0 .5em;
+      }
     }
     .content {
       display: flex;

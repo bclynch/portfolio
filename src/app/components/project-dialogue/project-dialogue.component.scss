@@ -15,14 +15,24 @@
     }
   }
   img {
-    height: 40vh;
     border-bottom: solid 2px black;
+    width: 100%;
   }
   .contentWrapper {
     padding: 1em;
+    box-sizing: border-box;
+    max-width: 100%;
 
-    h2 {
-      margin: 0;
+    .titleRow {
+      display: flex;
+      flex-wrap: wrap;
+
+      h2 {
+        margin: 0;
+      }
+      button {
+        margin-left: 1em;
+      }
     }
     h5 {
       color: #ddd;
@@ -32,6 +42,9 @@
     }
     button {
       color: white;
+      mat-icon {
+        font-size: 1.5em!important;
+      }
     }
   }
 }

@@ -84,7 +84,8 @@ export class AppComponent implements OnInit {
       thumbnail: 'assets/images/projects/edmflare.png',
       url: 'https://edmflare.com/',
       content: 'EDM Flare provides users a single place to find information on local electronic shows coming up with event, venue, and artist information. An Angular project written with Material components / styling with a Node backend. Supported by AWS services and Google Places API.',
-      description: 'Music Events Aggregator'
+      description: 'Music Events Aggregator',
+      github: 'https://github.com/bclynch/edm'
     },
     {
       title: 'Pack On My Back',
@@ -92,7 +93,9 @@ export class AppComponent implements OnInit {
       thumbnail: 'assets/images/projects/pomb.png',
       url: 'https://packonmyback.com/',
       content: 'Pack On My Back provides users a single place to keep track of all their travels. Upload pictures, write blogs, and create an interactive map of everywhere you have been. An Angular project written with Ionic components with a Node backend. Supported by AWS services and Google Places API.',
-      description: 'Travel Archiving Platform'
+      description: 'Travel Archiving Platform',
+      github: 'https://github.com/bclynch/pomb',
+      githubServer: 'https://github.com/bclynch/pomb-server'
     },
     {
       title: 'imSMART Web Client',
@@ -100,7 +103,16 @@ export class AppComponent implements OnInit {
       thumbnail: 'assets/images/projects/webclient.png',
       content: 'The imSmart web client provides users a way to access all their files and applications off their ipad, on the web. Written with Angular and Ionic it taps into the comprehensive existing API with user and organization content / settings ready to be consumed by the user.',
       description: 'Enterprise Web Client'
-    }
+    },
+    {
+      title: 'Decorasaurus',
+      subtitle: 'Angular Material + Typescript Node',
+      thumbnail: 'assets/images/projects/decorasaurus.png',
+      content: 'A project I haven\'t finished up that is a poster generator. Uses machine learning for photo conversion, Mapbox for mapping, and some tracing techniques. Uses a typescript node server for the backend image processing and cart management and Angular on the front end with a Graphql API connecting the two.',
+      description: 'Custom Poster Generation Application',
+      github: 'https://github.com/bclynch/decorasaurus',
+      githubServer: 'https://github.com/bclynch/decorasaurus-server'
+    },
   ];
 
   socials = [
