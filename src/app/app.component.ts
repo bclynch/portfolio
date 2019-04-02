@@ -44,7 +44,7 @@ const backgroundColor = 'hsla(0,0%,5%,1)';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  @HostListener('window:resize', ['$event'])
+  // @HostListener('window:resize', ['$event'])
 
   container;
   canvas;

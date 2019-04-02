@@ -1,7 +1,7 @@
 {
-  "name": "portfolio",
-  "short_name": "portfolio",
-  "theme_color": "#1976d2",
+  "name": "Brendan Lynch Portfolio",
+  "short_name": "BL Portfolio",
+  "theme_color": "#252934",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",
